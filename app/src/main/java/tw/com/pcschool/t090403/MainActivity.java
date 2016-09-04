@@ -25,20 +25,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void click1(View v)
     {
-        InputStream is = null;
-        is = getResources().openRawResource(R.raw.animal);
-
-        StringBuilder sb = new StringBuilder();
-        BufferedReader br = new BufferedReader(new InputStreamReader(is));
-        String inputLine = "";
-        try {
-            while ((inputLine = br.readLine()) != null) {
-                sb.append(inputLine);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Log.d("READ", sb.toString());
-
+        String result = MyUtils.getRawData(MainActivity.this, R.raw.animal);
+        Log.d("READ", result);
     }
 }
